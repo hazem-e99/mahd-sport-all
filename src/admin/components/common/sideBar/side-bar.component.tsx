@@ -1,16 +1,17 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useLocation, Link } from "react-router";
 import SvgLogoicon from '@admin/components/icons/logo-icon';
 import SvgHomeicon from '@admin/components/icons/home-icon';
-import SvgUsercardicon from '@admin/components/icons/usercard-icon';
-import SvgTabConfigicon from '@admin/components/icons/tab-config-icon';
-import SvgUsersManageIcon from '@admin/components/icons/users-manage-icon';
+import SvgUsersManageIcon from '@admin/components/icons/PeopleDashIcon';
+import SvgUsercardicon from '@admin/components/icons/CategoryDashIcon';
+import SvgTabConfigicon from '@admin/components/icons/SettingDashIcon';
+import SvgAudioIcon from '@admin/components/icons/AudioDashIcon';
 import type { SidebarItem } from '@admin/types/side-bar.types';
 import "./side-bar.component.scss";
 import { useLanguage } from '@admin/context/languageContext';
 
 export default function SideBar() {
   const { language, getValue } = useLanguage()
+  const { pathname } = useLocation();
 
   const sideBarList = [
     {
@@ -28,7 +29,7 @@ export default function SideBar() {
     {
       id: 3,
       title: getValue("sound_controller"),
-      img: <SvgUsercardicon />,
+      img: <SvgAudioIcon />,
       link: `/admin/${language}/sound-control`
     },
     {
@@ -46,9 +47,12 @@ export default function SideBar() {
     },
   ]
 
-
-
-  const [active] = useState<number>(1);
+  const isActive = (link: string) => {
+    if (link === `/admin/${language}`) {
+      return pathname === link;
+    }
+    return pathname.startsWith(link);
+  };
 
 
   return (
@@ -62,11 +66,11 @@ export default function SideBar() {
         <div className="sidbar-list">
           <ul>
             {sideBarList.map((item: SidebarItem) => {
-              const isActive = item.id === active;
+              const activeItem = isActive(item.link || "");
               return (
                 <li
                   key={item.id}
-                  className={`sidebar-item ${isActive ? "active" : ""} ${(item as any).className || ""}`}>
+                  className={`sidebar-item ${activeItem ? "active" : ""} ${(item as any).className || ""}`}>
                   <Link to={item.link ? item.link : ''} className="link_page">
                     {item.img}
                     <span className="icon_name">{item.title}</span>

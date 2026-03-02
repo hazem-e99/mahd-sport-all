@@ -13,6 +13,7 @@ const Home = lazy(() => import("@admin/pages/home/home"));
 const CardControl = lazy(() => import("@admin/pages/cardControl/card-control"));
 const GeneralSettings = lazy(() => import("@admin/components/common/GeneralSettings/GeneralSettings.component"));
 const ManageUsers = lazy(() => import("@admin/pages/manageUsers/ManageUsers"));
+const SoundControl = lazy(() => import("@admin/pages/soundControl/SoundControl"));
 
 
 const Loading = () => (
@@ -70,6 +71,14 @@ const Router = createBrowserRouter([
                 element: (
                     <Suspense fallback={<Loading />}>
                         <ManageUsers />
+                    </Suspense>
+                ),
+            },
+            {
+                path: ":lng/sound-control",
+                element: (
+                    <Suspense fallback={<Loading />}>
+                        <SoundControl />
                     </Suspense>
                 ),
             },

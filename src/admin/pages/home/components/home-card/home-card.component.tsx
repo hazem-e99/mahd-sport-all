@@ -4,7 +4,7 @@ import type { HomeCardProps } from '@admin/types/home-card.type';
 import { Link } from 'react-router';
 import { useLanguage } from '@admin/context/languageContext';
 
-const HomeCard: React.FC<HomeCardProps> = ({ title, desc, icon, urlToGo, onClick }) => {
+const HomeCard: React.FC<HomeCardProps> = ({ title, desc, icon, urlToGo, onClick, buttonText }) => {
     const { getValue } = useLanguage()
 
     const content = (
@@ -14,7 +14,7 @@ const HomeCard: React.FC<HomeCardProps> = ({ title, desc, icon, urlToGo, onClick
                 <h6 className='home-card-container__body-title mb-1'>{title}</h6>
                 <p className='home-card-container__body-desc'>{desc}</p>
                 <div className='home-card-container__body__button'>
-                    <span className='home-card-container__body__button-text'>{getValue("view_details") || 'View Details'}</span>
+                    <span className='home-card-container__body__button-text'>{buttonText || getValue("view_details") || 'View Details'}</span>
                     <SvgRightArrow className='rtl:rotate-180' />
                 </div>
             </div>

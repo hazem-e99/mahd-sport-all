@@ -20,11 +20,19 @@
 
     &__side {
         margin-inline-end: 16px;
-        color: var(--primary-color);
+        background-color: #773dbd;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFFFF;
+        flex-shrink: 0;
 
         svg {
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
         }
     }
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import SvgUserSurveyConfig from '@admin/components/icons/user-survey-config';
-import SvgPlaySquare from '@admin/components/icons/play-square';
-import SvgTabConfigicon from '@admin/components/icons/tab-config-icon';
-import SvgUsersManageIcon from '@admin/components/icons/users-manage-icon';
+import SvgUsersManageIcon from '@admin/components/icons/PeopleDashIcon';
+import SvgUserSurveyConfig from '@admin/components/icons/CategoryDashIcon';
+import SvgTabConfigicon from '@admin/components/icons/SettingDashIcon';
+import SvgAudioIcon from '@admin/components/icons/AudioDashIcon';
 import "./home.scss";
 import { useLanguage } from '@admin/context/languageContext';
 import HomeCard from "./components/home-card/home-card.component";
@@ -24,8 +24,8 @@ const Home = () => {
             id: 2,
             title: getValue("sound_controller") || "Sound Controller",
             desc: getValue("manage_sounds") || "Manage sounds and audio settings",
-            icon: <SvgPlaySquare className="card-icon" />,
-            onClick: () => setShowSoundModal(true),
+            icon: <SvgAudioIcon className="card-icon" />,
+            urlToGo: `/admin/${language}/sound-control`,
         },
         {
             id: 3,

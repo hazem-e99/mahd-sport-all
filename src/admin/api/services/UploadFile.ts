@@ -8,19 +8,23 @@ export const UploadFile = {
     await fakeDelay();
     const newFile = {
       id: 'f' + Date.now(),
-      name: file.name,
-      type: 'file',
+      fileName: file.name,
+      type: 'File',
       parentId: _parentId ?? null,
       createdAt: new Date().toISOString(),
       size: file.size,
+      contentType: file.type,
+      extension: file.name.split('.').pop() || '',
+      filePath: `/uploads/${file.name}`,
+      visiblity: _visibility === 1 ? "Restricted" : "Public"
     };
     files.push(newFile as any);
-    return { success: true, data: { path: `/uploads/${file.name}`, id: newFile.id }, message: null, errors: [] };
+    return { success: true, data: newFile, message: null, errors: [] };
   },
 
   searchFile: async (keyword: string) => {
     await fakeDelay();
-    const results = files.filter(f => f.name.toLowerCase().includes(keyword.toLowerCase()));
+    const results = files.filter(f => f.fileName.toLowerCase().includes(keyword.toLowerCase()));
     return { success: true, data: results, message: null, errors: [] };
   },
 
@@ -31,7 +35,18 @@ export const UploadFile = {
 
   createFolder: async (folderName: string, parentId?: string) => {
     await fakeDelay();
-    const newFolder = { id: 'f' + Date.now(), name: folderName, type: 'folder', parentId: parentId ?? null, createdAt: new Date().toISOString() };
+    const newFolder = {
+      id: 'f' + Date.now(),
+      fileName: folderName,
+      type: 'Folder',
+      parentId: parentId ?? null,
+      createdAt: new Date().toISOString(),
+      contentType: '',
+      extension: '',
+      size: 0,
+      filePath: '',
+      visiblity: "Public"
+    };
     files.push(newFolder as any);
     return { success: true, data: newFolder, message: null, errors: [] };
   },

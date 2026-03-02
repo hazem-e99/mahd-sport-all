@@ -81,3 +81,7 @@ export { default as VerticalDotsIcon } from "./vertical-dots-icon";
 export { default as WidgetConfigIcon } from "./widget-config-icon";
 export { default as WidgetConfig } from "./widget-config";
 export { default as WidgetIcon } from "./widget-icon";
+export { default as AudioDashIcon } from "./AudioDashIcon";
+export { default as CategoryDashIcon } from "./CategoryDashIcon";
+export { default as PeopleDashIcon } from "./PeopleDashIcon";
+export { default as SettingDashIcon } from "./SettingDashIcon";

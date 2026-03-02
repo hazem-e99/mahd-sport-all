@@ -310,7 +310,7 @@ const UploadModal = ({
 
         if (name) {
           // Set value without validation to prevent blocking
-          setValue(name, res.data?.path, { shouldValidate: false });
+          setValue(name, res.data?.filePath, { shouldValidate: false });
           if (file) clearErrors(name);
           handleClose();
           // Trigger validation asynchronously after modal closes to prevent UI freeze

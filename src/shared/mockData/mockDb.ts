@@ -295,6 +295,16 @@ export const MOCK_LOCALIZATION_ITEMS = [
     { key: 'dashboard', value: 'Dashboard', culture: 'en' },
     { key: 'logout', value: 'تسجيل الخروج', culture: 'ar' },
     { key: 'logout', value: 'Logout', culture: 'en' },
+    { key: 'manage_sounds_desc', value: 'إدارة ملفات النظام الصوتية ورفعها من هنا.', culture: 'ar' },
+    { key: 'manage_sounds_desc', value: 'Manage and upload system sound files here.', culture: 'en' },
+    { key: 'upload_sound', value: 'رفع صوت', culture: 'ar' },
+    { key: 'upload_sound', value: 'Upload Sound', culture: 'en' },
+    { key: 'name_ar', value: 'الاسم (بالعربية)', culture: 'ar' },
+    { key: 'name_ar', value: 'Name (Arabic)', culture: 'en' },
+    { key: 'name_en', value: 'الاسم (بالانجليزية)', culture: 'ar' },
+    { key: 'name_en', value: 'Name (English)', culture: 'en' },
+    { key: 'player_name', value: 'اسم اللاعب', culture: 'ar' },
+    { key: 'player_name', value: 'Player Name', culture: 'en' },
 ];
 
 // ─────────────────────────────────────────────
@@ -368,9 +378,9 @@ export const MOCK_MONITOR_INTEGRATION = [
 // FILE RECORDS
 // ─────────────────────────────────────────────
 export const MOCK_FILES = [
-    { id: 'f1', name: 'صور اللاعبين', type: 'folder', parentId: null, createdAt: '2026-01-01' },
-    { id: 'f2', name: 'وثائق', type: 'folder', parentId: null, createdAt: '2026-01-01' },
-    { id: 'f3', name: 'دليل الاستخدام.pdf', type: 'file', parentId: 'f2', createdAt: '2026-01-10', size: 2048 },
+    { id: 'f1', fileName: 'صور اللاعبين', type: 'Folder', parentId: null, createdAt: '2026-01-01', contentType: '', extension: '', size: 0, filePath: '' },
+    { id: 'f2', fileName: 'وثائق', type: 'Folder', parentId: null, createdAt: '2026-01-01', contentType: '', extension: '', size: 0, filePath: '' },
+    { id: 'f3', fileName: 'دليل الاستخدام.pdf', type: 'File', parentId: 'f2', createdAt: '2026-01-10', size: 2048, contentType: 'application/pdf', extension: '.pdf', filePath: '/uploads/دليل الاستخدام.pdf' },
 ];
 
 // ─────────────────────────────────────────────

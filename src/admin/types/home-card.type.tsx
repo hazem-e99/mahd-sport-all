@@ -1,8 +1,9 @@
 export interface HomeCardProps {
     id: number;
-    title: string
+    title: string;
     desc: string;
     icon: any;
     urlToGo?: string;
     onClick?: () => void;
+    buttonText?: string;
 }
