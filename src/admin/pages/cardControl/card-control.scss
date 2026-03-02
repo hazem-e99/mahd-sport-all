@@ -1,0 +1,467 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ══════════════════════════════════════════════
+//  Card Control Page
+// ══════════════════════════════════════════════
+
+.card-control-page {
+  .card {
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    border-radius: 12px !important;
+
+    // ── Card Header ───────────────────────────
+    .card-header {
+      border-bottom: 1px solid $color-gray-200;
+      padding: 1.25rem 1.5rem;
+
+      h1 {
+        font-family: "Mahd Favorit Arabic", sans-serif !important;
+        font-size: $font-size-xl;
+        font-weight: 700;
+        color: $text-primary-color;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .badge {
+          background-color: $color-primary-light;
+          color: $color-primary;
+          padding: 3px 10px;
+          border-radius: 20px;
+          font-size: $font-size-sm;
+          font-weight: 700;
+          min-width: 28px;
+          text-align: center;
+        }
+      }
+    }
+
+    // ── Filter / Search Bar ───────────────────
+    .card-body {
+      .filter-container {
+        @include flex-bar-between;
+        flex-wrap: wrap;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid $color-gray-200;
+        gap: 12px;
+
+        .search-box {
+          flex: 1;
+          max-width: 360px;
+          min-width: 220px;
+
+          .position-relative {
+            position: relative;
+
+            .search-box-icon {
+              position: absolute;
+              inset-inline-start: 12px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: $color-gray-800;
+              z-index: 2;
+              pointer-events: none;
+              display: flex;
+              align-items: center;
+
+              svg {
+                width: 16px;
+                height: 16px;
+              }
+            }
+
+            .search-box-input {
+              font-family: "Mahd Favorit Arabic", sans-serif !important;
+              height: $input-height;
+              width: 100%;
+              padding: 0 0.875rem 0 2.5rem;
+              border: 1.5px solid $input-border-color;
+              border-radius: $border-radius-md;
+              font-size: $font-size-md;
+              color: $text-primary-color;
+              background-color: $color-white;
+              transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+              &:focus {
+                border-color: $color-primary;
+                box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+                outline: none;
+              }
+
+              &::placeholder {
+                color: $color-gray-800;
+                font-size: $font-size-md;
+              }
+
+              html[dir="rtl"] & {
+                padding: 0 2.5rem 0 0.875rem;
+              }
+            }
+          }
+        }
+      }
+
+      // ── Table Wrapper ─────────────────────────
+      .table-wrapper {
+        overflow-x: auto;
+      }
+    }
+  }
+}
+
+// ══════════════════════════════════════════════
+//  Shared Table — Card Control overrides
+// ══════════════════════════════════════════════
+
+.card-control-page {
+  .shared-table-container {
+
+    table {
+      thead {
+        tr {
+          background-color: $color-gray-100;
+
+          th {
+            font-family: "Mahd Favorit Arabic", sans-serif !important;
+            font-size: $font-size-sm;
+            font-weight: 600;
+            color: $color-gray-400;
+            padding: 14px 20px;
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            border: none;
+            cursor: default !important;
+            user-select: none;
+
+            html[dir="rtl"] & { text-align: right; }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-bottom: 1px solid $color-gray-200;
+          transition: background-color 0.15s ease;
+
+          &:hover { background-color: #fafafa; }
+          &:last-child { border-bottom: none; }
+
+          td {
+            font-family: "Mahd Favorit Arabic", sans-serif !important;
+            font-size: $font-size-md;
+            font-weight: 400;
+            color: $text-primary-color;
+            padding: 14px 20px;
+            vertical-align: middle;
+            border: none;
+          }
+        }
+      }
+    }
+
+    // ── Player cell ─────────────────────────────
+    .employee-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: $border-radius-circle;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-primary-light;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .employee-details {
+        min-width: 0;
+        flex: 1;
+
+        .name {
+          font-family: "Mahd Favorit Arabic", sans-serif !important;
+          font-size: $font-size-md;
+          font-weight: 600;
+          color: $text-primary-color;
+          margin: 0;
+          line-height: 1.4;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    // ── Player avatar cell ───────────────────────
+    .player-avatar-cell {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      .player-avatar-img {
+        width: 44px;
+        height: 44px;
+        border-radius: $border-radius-circle;
+        object-fit: cover;
+        border: 2px solid $color-primary-light;
+        background-color: $color-gray-300;
+        flex-shrink: 0;
+        display: block;
+      }
+    }
+
+    // ── Action buttons ──────────────────────────
+    .btn-link {
+      color: $color-gray-800;
+      transition: color 0.15s ease;
+      line-height: 1;
+      padding: 6px !important;
+
+      &:hover { color: $color-primary; }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+// ══════════════════════════════════════════════
+//  Performance Badge
+// ══════════════════════════════════════════════
+
+.badge {
+  font-family: "Mahd Favorit Arabic", sans-serif !important;
+  font-size: $font-size-sm !important;
+  font-weight: 600 !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+}
+
+// ══════════════════════════════════════════════
+//  Status Switch
+// ══════════════════════════════════════════════
+
+.custom-status-switch {
+  position: relative;
+  display: inline-block;
+
+  .switch-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+
+    &:checked + .switch-label {
+      background-color: #10b981;
+      border-color: #10b981;
+
+      &::before { transform: translateX(49px); }
+
+      .switch-text {
+        color: $color-white;
+        left: 8px;
+        right: auto;
+      }
+    }
+
+    &:focus + .switch-label {
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+  }
+
+  .switch-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 73px;
+    height: 26px;
+    background-color: #e5e7eb;
+    border: 2px solid #e5e7eb;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      background-color: $color-white;
+      border-radius: 50%;
+      transition: all 0.25s ease;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    .switch-text {
+      font-family: "Mahd Favorit Arabic", sans-serif !important;
+      font-size: 10px;
+      font-weight: 700;
+      color: #6b7280;
+      z-index: 1;
+      position: absolute;
+      right: 8px;
+      left: auto;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      transition: all 0.25s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+  }
+}
+
+// ══════════════════════════════════════════════
+//  Excel Split Dropdown
+// ══════════════════════════════════════════════
+
+.excel-split-dropdown {
+  background-color: $color-white;
+  border: 1.5px solid $color-primary-light;
+  border-radius: 10px;
+  overflow: visible;
+  transition: $transition;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 2px 10px rgba($color-primary, 0.12);
+  }
+
+  .btn {
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    font-family: "Mahd Favorit Arabic", sans-serif !important;
+    font-size: $font-size-md;
+    font-weight: 500;
+    color: $text-primary-color;
+    transition: $transition;
+    box-shadow: none !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-primary-light;
+      color: $color-primary;
+    }
+  }
+
+  .excel-btn-label {
+    font-weight: 700;
+    font-size: $font-size-md;
+    color: $color-primary;
+  }
+
+  .excel-main-btn {
+    border-inline-end: 1.5px solid $color-primary-light;
+    padding-inline-end: 14px;
+  }
+
+  .excel-toggle-btn {
+    padding-inline: 10px;
+    color: $color-primary;
+
+    &::after {
+      display: inline-block;
+      margin-left: 0;
+      vertical-align: middle;
+      border-top: 0.32em solid;
+      border-right: 0.32em solid transparent;
+      border-left: 0.32em solid transparent;
+      color: $color-primary;
+    }
+  }
+
+  // ── Dropdown Menu ─────────────────────────────
+  .excel-dropdown-menu {
+    border-radius: 12px;
+    border: 1.5px solid $color-primary-light;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1), 0 2px 6px rgba($color-primary, 0.07);
+    padding: 6px;
+    min-width: 180px;
+    margin-top: 6px !important;
+    animation: dropdownFadeIn 0.15s ease;
+
+    @keyframes dropdownFadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .excel-menu-item {
+      font-family: "Mahd Favorit Arabic", sans-serif !important;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: $font-size-md;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: $text-secondary-color;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-primary-light;
+        color: $color-primary;
+
+        .menu-item-icon { color: $color-primary; }
+      }
+
+      .menu-item-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        background-color: $color-primary-light;
+        color: $color-primary;
+        flex-shrink: 0;
+        transition: $transition;
+      }
+    }
+  }
+}
+
+// ══════════════════════════════════════════════
+//  RTL overrides
+// ══════════════════════════════════════════════
+
+html[dir="rtl"] {
+  .excel-split-dropdown {
+    .excel-main-btn {
+      border-inline-end: 1.5px solid $color-primary-light;
+    }
+  }
+
+  .card-control-page {
+    .search-box-icon {
+      left: auto;
+      right: 12px;
+    }
+  }
+}

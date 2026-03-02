@@ -1,0 +1,52 @@
+@use '../../styles/variables' as *;
+
+.nav-bar {
+  background-color: var(--bs-body-bg, #fff);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  border-bottom: 1px solid var(--bs-border-color, #e8e8e8);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-bar-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0 14px;
+    height: 35px;
+    border-radius: $border-radius-lg;
+    border: 1px solid var(--bs-border-color, #e8e8e8);
+    background-color: transparent;
+    color: var(--bs-body-color, $text-primary-color);
+    cursor: pointer;
+    transition: $transition;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-md;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.1);
+      border-color: $color-primary;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-bar { padding: 8px 12px; }
+  .nav-bar-right { gap: 10px; }
+}

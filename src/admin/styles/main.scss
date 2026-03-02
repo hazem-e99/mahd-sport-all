@@ -1,0 +1,624 @@
+@use './variables' as *;
+@use './functions' as *;
+@use './base' as *;
+@use './mixins' as *;
+@use "tailwindcss" as *;
+
+@import './public-fonts.scss';
+
+#root {
+  height: 100vh;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #773dbd;
+  --bs-btn-border-color: #773dbd;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #773dbd;
+  --bs-btn-hover-border-color: #773dbd;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #773dbd;
+  --bs-btn-active-border-color: #6d38ae;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #6d38ae;
+  --bs-btn-disabled-border-color: #6d38ae;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Black.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Black.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Bold.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Bold.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic Book";
+  src: url("./fonts/MahdFavoritArabic-Book.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic Book";
+  src: url("./fonts/MahdFavoritArabic-Book.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Extrabold.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Extrabold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Light.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Extrabold.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Extrabold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Extrabold.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Extrabold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Light.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Medium.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Medium.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Regular.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mahd Favorit Arabic";
+  src: url("./fonts/MahdFavoritArabic-Regular.woff2") format("woff2"),
+    url("./fonts/MahdFavoritArabic-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Janna LT", "Myriad Pro", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+html {
+  font-family: "Janna LT", "Myriad Pro", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+*,
+*::before,
+*::after {
+  font-family: "Janna LT", "Myriad Pro", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.main-button {
+  min-width: 120px;
+  padding: 10px 20px;
+  background-color: $color-white;
+  color: $text-primary-color;
+  border: 1px solid $color-gray-800;
+  border-radius: $border-radius-sm;
+  font-weight: 500;
+  font-size: $font-size-lg;
+  cursor: pointer;
+
+  &.active {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &.Preview {
+    background-color: $color-secondary;
+    color: $color-white;
+  }
+}
+
+.main-input {
+  height: $input-height;
+  border: 1px solid $input-border-color;
+}
+
+.form-label {
+  color: $color-black;
+  font-weight: 400;
+
+  em {
+    color: $color-gray-700;
+    font-style: normal;
+    font-size: $font-size-sm;
+    padding-inline-start: 5px;
+  }
+}
+
+.input-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  input {
+    width: 20px;
+    height: 20px;
+  }
+
+  label {
+    margin-bottom: -5px;
+  }
+}
+
+.input-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  input {
+    width: 20px;
+    height: 20px;
+  }
+
+  label {
+    margin-bottom: -5px;
+  }
+}
+
+.form-check-input:checked {
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+// Basic Form
+
+.form-label {
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  border-radius: $border-radius-sm;
+  border: 1px solid #ced4da;
+  padding: 0.5rem 0.75rem;
+  height: calc(2.5rem + 2px);
+
+  &:focus {
+    border-color: rgba($color-primary, 0.4) !important;
+    box-shadow: none !important;
+  }
+}
+
+.form-select {
+  html[dir='rtl'] & {
+    background-position: left 0.75rem center;
+    direction: rtl;
+  }
+}
+
+html[dir=rtl] .form-select {
+  background-position: left 0.75rem center;
+  direction: rtl;
+}
+
+html[dir='rtl'] {
+  .react-datepicker__view-calendar-icon input {
+    padding: 4px 30px 6px 0;
+  }
+}
+
+
+textarea.form-control {
+  min-height: auto;
+  height: auto;
+}
+
+.file-upload-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px dashed #ced4da;
+  border-radius: $border-radius-sm;
+  padding: 0.5rem 0.75rem;
+  background-color: #f8f9fa;
+  gap: 10px;
+
+  .file-upload-btn {
+    white-space: nowrap;
+    font-size: 0.875rem;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary;
+    }
+  }
+
+  .file-name {
+    color: #6c757d;
+    font-size: 0.875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 140px);
+  }
+}
+
+.form-check {
+  .form-check-input {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.125rem;
+  }
+
+  .form-check-label {
+    margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .file-upload-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .file-name {
+      margin-top: 0.5rem;
+      margin-left: 0 !important;
+    }
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// Global React-Select — Mahd Design System
+// ══════════════════════════════════════════════════════════
+.react-select-container {
+
+  // ── Control (the visible input box) ─────────────────────
+  .react-select__control {
+    height: $input-height;
+    min-height: $input-height;
+    border: 1.5px solid $input-border-color !important;
+    border-radius: $border-radius-md !important;
+    box-shadow: none !important;
+    background-color: $color-white;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      border-color: $color-primary !important;
+    }
+
+    &--is-focused {
+      border-color: $color-primary !important;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1) !important;
+    }
+
+    &--is-disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background-color: $color-gray-300;
+    }
+  }
+
+  .react-select__value-container {
+    padding: 0 0.875rem;
+    height: 100%;
+  }
+
+  .react-select__placeholder {
+    font-size: $font-size-md;
+    color: $color-gray-800;
+    margin: 0;
+  }
+
+  .react-select__single-value {
+    font-size: $font-size-md;
+    color: $text-primary-color;
+    margin: 0;
+  }
+
+  .react-select__input-container {
+    font-size: $font-size-md;
+    margin: 0;
+    padding: 0;
+  }
+
+  .react-select__multi-value {
+    background-color: $color-primary-light;
+    border-radius: 4px;
+
+    &__label {
+      font-size: $font-size-sm;
+      color: $color-primary;
+      font-weight: 600;
+    }
+
+    &__remove {
+      color: $color-primary;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba($color-primary, 0.2);
+        color: $color-primary;
+      }
+    }
+  }
+
+  .react-select__indicator-separator {
+    background-color: $color-gray-200;
+  }
+
+  .react-select__dropdown-indicator {
+    color: $color-gray-800;
+    padding: 0 0.625rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .react-select__clear-indicator {
+    color: $color-gray-800;
+    padding: 0 0.375rem;
+    &:hover { color: $alert-red-color; }
+  }
+
+  // ── Dropdown menu ────────────────────────────────────────
+  .react-select__menu {
+    border-radius: $border-radius-md;
+    border: 1.5px solid $color-primary-light;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.1),
+      0 2px 8px rgba($color-primary, 0.06);
+    margin-top: 4px;
+    z-index: 9999;
+    overflow: hidden;
+    animation: rsMenuFadeIn 0.15s ease;
+
+    @keyframes rsMenuFadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  .react-select__menu-list {
+    padding: 6px;
+    max-height: 240px;
+
+    &::-webkit-scrollbar { width: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-gray-200;
+      border-radius: 4px;
+    }
+  }
+
+  .react-select__option {
+    font-size: $font-size-md;
+    color: $text-primary-color;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    margin-bottom: 2px;
+
+    &--is-focused {
+      background-color: rgba($color-primary, 0.08);
+      color: $text-primary-color;
+    }
+
+    &--is-selected {
+      background-color: $color-primary;
+      color: $color-white;
+      font-weight: 600;
+    }
+  }
+
+  .react-select__menu-notice {
+    font-size: $font-size-md;
+    color: $color-gray-400;
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  // ── Invalid state ────────────────────────────────────────
+  &.is-invalid .react-select__control {
+    border-color: $alert-red-color !important;
+    &--is-focused {
+      box-shadow: 0 0 0 3px rgba($alert-red-color, 0.1) !important;
+    }
+  }
+}
+
+// RTL
+html[dir="rtl"] {
+  .react-select__dropdown-indicator { padding: 0 0.625rem; }
+}
+
+// Responsive adjustments
+@media (max-width: 767.98px) {
+  .file-upload-wrapper {
+    flex-wrap: wrap;
+
+    .file-name {
+      margin-top: 0.5rem;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .react-select-container {
+    width: 100%;
+  }
+}
+
+html[dir="rtl"] {
+  .form-check {
+
+    .form-check-label,
+    .form-check-input {
+      margin-left: 0.5rem;
+      margin-right: unset;
+      float: right;
+    }
+  }
+
+  .form-check-inline {
+    margin-right: 0;
+  }
+}
+
+
+.select2-isMulti {
+
+  .css-z8nr4w,
+  .css-1ycm5vs-control {
+    height: auto;
+    min-height: 45px;
+  }
+}
+
+.select2-isMulti {
+
+  .css-z8nr4w,
+  .css-1ycm5vs-control {
+    height: auto;
+    min-height: 45px;
+  }
+
+  .css-lgygtr-control {
+    height: auto;
+    min-height: 45px;
+  }
+}
+
+
+
+.badge {
+  min-width: 40px;
+  width: auto;
+  border-radius: 5px !important;
+}
+
+.viwe-dit {
+  color: #007bff;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.border-brand-gray-200 {
+  border-color: #e5e5e5;
+}
+
+// ── Compact Confirm Dialog ───────────────────────────────
+.confirm-dialog-compact {
+  max-width: 380px !important;
+  width: 380px !important;
+  margin: auto;
+
+  .modal-content {
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+    height: fit-content !important;
+    min-height: unset !important;
+  }
+
+  .modal-header {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f0f0f0;
+
+    .modal-title { font-size: 0.95rem; font-weight: 700; }
+    .btn-close   { padding: 8px; }
+  }
+
+  .modal-body {
+    padding: 16px 18px;
+  }
+
+  .modal-footer {
+    padding: 12px 18px;
+    border-top: 1px solid #f0f0f0;
+    gap: 8px;
+
+    .btn { padding: 7px 20px; font-size: 0.875rem; border-radius: 8px; }
+  }
+}
