@@ -2,7 +2,7 @@ import { useState } from "react";
 import SvgUserSurveyConfig from '@admin/components/icons/user-survey-config';
 import SvgPlaySquare from '@admin/components/icons/play-square';
 import SvgTabConfigicon from '@admin/components/icons/tab-config-icon';
-// SvgUserSurveyConfig kept for card-control card icon
+import SvgUsersManageIcon from '@admin/components/icons/users-manage-icon';
 import "./home.scss";
 import { useLanguage } from '@admin/context/languageContext';
 import HomeCard from "./components/home-card/home-card.component";
@@ -33,6 +33,13 @@ const Home = () => {
             desc: getValue("General_Setting_Desc") || "Manage portal basics, colors, and themes",
             icon: <SvgTabConfigicon className="card-icon" />,
             urlToGo: `/admin/${language}/GeneralSettings`,
+        },
+        {
+            id: 4,
+            title: getValue("manage_users") || "Manage Users",
+            desc: getValue("manage_users_desc") || "Add users, assign roles and permissions",
+            icon: <SvgUsersManageIcon className="card-icon" />,
+            urlToGo: `/admin/${language}/manage-users`,
         },
     ];
 

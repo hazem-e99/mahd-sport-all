@@ -15,6 +15,7 @@ export const MOCK_ACCOUNTS = [
         name: 'مدير النظام',
         canAccessAdmin: true,
         permissions: ['read', 'write', 'delete', 'manage'],
+        isFirstLogin: false,
     },
     {
         email: 'user@mahd.sa',
@@ -22,8 +23,45 @@ export const MOCK_ACCOUNTS = [
         name: 'مستخدم البوابة',
         canAccessAdmin: false,
         permissions: ['read'],
+        isFirstLogin: false,
     },
 ];
+
+// ─────────────────────────────────────────────
+// MANAGED USERS  (Manage Users page)
+// ─────────────────────────────────────────────
+export interface ManagedUser {
+    id: string;
+    email: string;
+    name: string;
+    roleId: string;
+    roleName: string;
+    permissions: string[];
+    isFirstLogin: boolean;
+    tempPassword: string;
+    password: string;
+    canAccessAdmin: boolean;
+    createdAt: string;
+    status: 'active' | 'inactive';
+}
+
+export let MOCK_MANAGED_USERS: ManagedUser[] = [
+    {
+        id: '1',
+        email: 'manager@mahd.sa',
+        name: 'مدير المحتوى',
+        roleId: '2',
+        roleName: 'Coach',
+        permissions: ['read', 'write'],
+        isFirstLogin: true,
+        tempPassword: 'Temp@1234',
+        password: 'Temp@1234',
+        canAccessAdmin: true,
+        createdAt: '2026-03-01T10:00:00',
+        status: 'active',
+    },
+];
+
 
 // ─────────────────────────────────────────────
 // EMPLOYEES  (CardControl / Portal)

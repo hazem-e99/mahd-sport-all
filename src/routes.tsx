@@ -6,11 +6,14 @@ import { Spinner } from "react-bootstrap";
 const AdminApp = lazy(() => import("@admin/AdminApp"));
 const PortalApp = lazy(() => import("@portal/PortalApp"));
 const LoginPage = lazy(() => import("@shared/pages/login/LoginPage"));
+const CreateNewPasswordPage = lazy(() => import("@shared/pages/createPassword/CreateNewPasswordPage"));
 
 // Lazy load admin pages
 const Home = lazy(() => import("@admin/pages/home/home"));
 const CardControl = lazy(() => import("@admin/pages/cardControl/card-control"));
 const GeneralSettings = lazy(() => import("@admin/components/common/GeneralSettings/GeneralSettings.component"));
+const ManageUsers = lazy(() => import("@admin/pages/manageUsers/ManageUsers"));
+
 
 const Loading = () => (
     <div className="d-flex justify-content-center align-items-center vh-100">
@@ -63,6 +66,14 @@ const Router = createBrowserRouter([
                 ),
             },
             {
+                path: ":lng/manage-users",
+                element: (
+                    <Suspense fallback={<Loading />}>
+                        <ManageUsers />
+                    </Suspense>
+                ),
+            },
+            {
                 path: "*",
                 element: <Navigate to="/admin/en" replace />,
             },
@@ -74,6 +85,15 @@ const Router = createBrowserRouter([
         element: (
             <Suspense fallback={<Loading />}>
                 <PortalApp />
+            </Suspense>
+        ),
+    },
+    // Create new password (first login)
+    {
+        path: "/create-password",
+        element: (
+            <Suspense fallback={<Loading />}>
+                <CreateNewPasswordPage />
             </Suspense>
         ),
     },

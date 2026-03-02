@@ -1,10 +1,7 @@
 import SvgArrowdownicon from '@admin/components/icons/arrowdown-icon';
 import React, { useEffect, useRef, useState } from 'react';
-import { toast } from 'react-toastify';
 import { useLanguage } from '@admin/context/languageContext';
 import { useAuth } from '@shared/context/AuthContext';
-import MadietConfirmModal from '@admin/components/common/MadietConfirmModal/MadietConfirmModal';
-import { updateEmployeesFromAzureAD } from '@admin/api/endpoints/EmployeesApi';
 import './user-profilemenu.component.scss';
 
 interface UserData {
@@ -19,8 +16,6 @@ const UserProfileMenu: React.FC<UserProfileMenuProps> = ({ userData }) => {
     const { user, logout } = useAuth();
     const { getValue } = useLanguage();
     const [showMenu, setShowMenu] = useState(false);
-    const [showSyncModal, setShowSyncModal] = useState(false);
-    const [isSyncing, setIsSyncing] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -44,28 +39,6 @@ const UserProfileMenu: React.FC<UserProfileMenuProps> = ({ userData }) => {
         logout();
     };
 
-    const handleSyncUsersClick = () => {
-        setShowSyncModal(true);
-        setShowMenu(false);
-    };
-
-    const handleSyncConfirm = async () => {
-        try {
-            setIsSyncing(true);
-            await updateEmployeesFromAzureAD();
-            toast.success(getValue('sync_success'));
-            setShowSyncModal(false);
-        } catch (error) {
-            console.log(error)
-            toast.error(getValue('sync_error'));
-        } finally {
-            setIsSyncing(false);
-        }
-    };
-
-    const handleSyncCancel = () => {
-        setShowSyncModal(false);
-    };
     return (
         <div className='user-profile-menu' ref={menuRef}>
             <div className="user-profile-menu-container" onClick={toggleMenu}>
@@ -85,27 +58,13 @@ const UserProfileMenu: React.FC<UserProfileMenuProps> = ({ userData }) => {
             {showMenu && (
                 <div className="user-profile-dropdown">
                     <button
-                        className="sync-users-button"
-                        onClick={handleSyncUsersClick}
-                    >
-                        {getValue('sync_users')}
-                    </button>
-                    <button
                         className="logout-button"
                         onClick={handleLogoutClick}
                     >
-
                         {getValue('Logout')}
                     </button>
                 </div>
             )}
-
-            <MadietConfirmModal
-                show={showSyncModal}
-                onHide={handleSyncCancel}
-                onConfirm={handleSyncConfirm}
-                isLoading={isSyncing}
-            />
         </div>
     );
 };

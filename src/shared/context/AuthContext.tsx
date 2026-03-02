@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState, useCallback, useMemo, useEffect } from 'react';
-import { MOCK_ACCOUNTS } from '@shared/mockData/mockDb';
+import { MOCK_ACCOUNTS, MOCK_MANAGED_USERS } from '@shared/mockData/mockDb';
 
 interface AuthUser {
     name?: string;
     email?: string;
     canAccessAdmin?: boolean;
     permissions?: string[];
+    isFirstLogin?: boolean;
     [key: string]: any;
 }
 
@@ -15,7 +16,7 @@ interface AuthContextType {
     isAdmin: boolean;
     isLoading: boolean;
     error: string | null;
-    login: (email: string, password: string) => Promise<'admin' | 'portal'>;
+    login: (email: string, password: string) => Promise<'admin' | 'portal' | 'first-login'>;
     logout: () => void;
 }
 
@@ -39,7 +40,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const isAuthenticated = !!user;
     const isAdmin = !!user?.canAccessAdmin;
 
-    // Persist user to localStorage
     useEffect(() => {
         if (user) {
             localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(user));
@@ -49,16 +49,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     }, [user]);
 
-    const login = useCallback(async (email: string, password: string): Promise<'admin' | 'portal'> => {
+    const login = useCallback(async (email: string, password: string): Promise<'admin' | 'portal' | 'first-login'> => {
         setIsLoading(true);
         setError(null);
 
-        // Simulate a small delay for UX
         await new Promise(resolve => setTimeout(resolve, 600));
 
-        const account = MOCK_ACCOUNTS.find(
+        // Search static accounts first
+        let account: any = MOCK_ACCOUNTS.find(
             a => a.email.toLowerCase() === email.toLowerCase() && a.password === password
         );
+
+        // Then search managed users
+        if (!account) {
+            const managed = MOCK_MANAGED_USERS.find(
+                u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+            );
+            if (managed) {
+                account = {
+                    email: managed.email,
+                    password: managed.password,
+                    name: managed.name,
+                    canAccessAdmin: managed.canAccessAdmin,
+                    permissions: managed.permissions,
+                    isFirstLogin: managed.isFirstLogin,
+                };
+            }
+        }
 
         if (!account) {
             setIsLoading(false);
@@ -72,13 +89,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             email: account.email,
             canAccessAdmin: account.canAccessAdmin,
             permissions: account.permissions,
+            isFirstLogin: account.isFirstLogin ?? false,
         };
 
-        // Store a fake token
         localStorage.setItem(TOKEN_STORAGE_KEY, 'mock-static-token-' + Date.now());
         setUser(userData);
         setIsLoading(false);
 
+        if (userData.isFirstLogin) return 'first-login';
         return userData.canAccessAdmin ? 'admin' : 'portal';
     }, []);
 
@@ -86,7 +104,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(null);
         localStorage.removeItem(AUTH_STORAGE_KEY);
         localStorage.removeItem(TOKEN_STORAGE_KEY);
-
         window.location.href = '/login';
     }, []);
 

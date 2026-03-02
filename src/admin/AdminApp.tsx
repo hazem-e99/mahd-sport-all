@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/main.scss";
 import { Outlet, useParams } from "react-router";
 import Navbar from "./components/common/navBar/nav-bar.component";
 import SideBar from "./components/common/sideBar/side-bar.component";

@@ -4,14 +4,13 @@ import SvgLogoicon from '@admin/components/icons/logo-icon';
 import SvgHomeicon from '@admin/components/icons/home-icon';
 import SvgUsercardicon from '@admin/components/icons/usercard-icon';
 import SvgTabConfigicon from '@admin/components/icons/tab-config-icon';
+import SvgUsersManageIcon from '@admin/components/icons/users-manage-icon';
 import type { SidebarItem } from '@admin/types/side-bar.types';
 import "./side-bar.component.scss";
 import { useLanguage } from '@admin/context/languageContext';
 
 export default function SideBar() {
   const { language, getValue } = useLanguage()
-
-  console.log(getValue("my_home"))
 
   const sideBarList = [
     {
@@ -29,7 +28,7 @@ export default function SideBar() {
     {
       id: 3,
       title: getValue("sound_controller"),
-      img: <SvgUsercardicon />, // Placeholder icon
+      img: <SvgUsercardicon />,
       link: `/admin/${language}/sound-control`
     },
     {
@@ -39,7 +38,14 @@ export default function SideBar() {
       link: `/admin/${language}/GeneralSettings`,
       className: "tab-config-icon"
     },
+    {
+      id: 5,
+      title: getValue("manage_users") || "Manage Users",
+      img: <SvgUsersManageIcon />,
+      link: `/admin/${language}/manage-users`,
+    },
   ]
+
 
 
   const [active] = useState<number>(1);

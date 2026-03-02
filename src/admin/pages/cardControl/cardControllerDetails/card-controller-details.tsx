@@ -32,15 +32,15 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
   const [isSaving, setIsSaving] = useState(false);
 
   // Upload modal states
-  const [showPhotoUpload, setShowPhotoUpload]   = useState(false);
-  const [showGifUpload,   setShowGifUpload]     = useState(false);
-  const [photoFileName,   setPhotoFileName]     = useState("");
-  const [gifFileName,     setGifFileName]       = useState("");
+  const [showPhotoUpload, setShowPhotoUpload] = useState(false);
+  const [showGifUpload, setShowGifUpload] = useState(false);
+  const [photoFileName, setPhotoFileName] = useState("");
+  const [gifFileName, setGifFileName] = useState("");
 
   const photoPath = watch("photoUrl");
-  const gifUrl    = watch("kpi.skillVideoUrl");
-  const order     = watch("orderIndex");
-  const showUser  = watch("status");
+  const gifUrl = watch("kpi.skillVideoUrl");
+  const order = watch("orderIndex");
+  const showUser = watch("status");
   const selectedCountry = watch("nationality.Code");
 
   useEffect(() => {
@@ -108,7 +108,7 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                 <div className="change-image-section text-center mb-4">
                   <button
                     type="button"
-                    className="btn btn-outline-primary"
+                    className="main-button active"
                     onClick={() => setShowPhotoUpload(true)}
                     disabled={isSaving}
                   >
@@ -143,8 +143,8 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                 <div className="form-section-header">
                   <span className="form-section-header__icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8"/>
-                      <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                      <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8" />
+                      <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                     </svg>
                   </span>
                   <span className="form-section-header__title">{getValue("personal_info") || "Personal Info"}</span>
@@ -190,9 +190,9 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                 <div className="form-section-header">
                   <span className="form-section-header__icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.8"/>
-                      <path d="M3 9h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      <path d="M7 13h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.8" />
+                      <path d="M3 9h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <path d="M7 13h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </span>
                   <span className="form-section-header__title">{getValue("nationality") || "Nationality"}</span>
@@ -235,10 +235,10 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                 <div className="form-section-header">
                   <span className="form-section-header__icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8"/>
-                      <path d="M12 3c0 0 3 4 3 9s-3 9-3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      <path d="M12 3c0 0-3 4-3 9s3 9 3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      <path d="M3 12h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+                      <path d="M12 3c0 0 3 4 3 9s-3 9-3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <path d="M12 3c0 0-3 4-3 9s3 9 3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <path d="M3 12h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </span>
                   <span className="form-section-header__title">{getValue("sport_info") || "Sport Info"}</span>
@@ -252,12 +252,12 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                       <SelectController
                         control={control} name="sport" required
                         options={[
-                          { value: "football",  label: getValue("football")  || "Football" },
+                          { value: "football", label: getValue("football") || "Football" },
                           { value: "athletics", label: getValue("athletics") || "Athletics" },
-                          { value: "judo",      label: getValue("judo")      || "Judo" },
-                          { value: "tennis",    label: getValue("tennis")    || "Tennis" },
+                          { value: "judo", label: getValue("judo") || "Judo" },
+                          { value: "tennis", label: getValue("tennis") || "Tennis" },
                           { value: "taekwondo", label: getValue("taekwondo") || "Taekwondo" },
-                          { value: "swimming",  label: getValue("swimming")  || "Swimming" },
+                          { value: "swimming", label: getValue("swimming") || "Swimming" },
                         ]}
                         getOptionLabel={(o: any) => o.label}
                         getOptionValue={(o: any) => o.value}
@@ -292,8 +292,8 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                         control={control} name="performance" required
                         options={[
                           { value: "diamond", label: getValue("diamond") || "Diamond" },
-                          { value: "gold",    label: getValue("gold")    || "Gold" },
-                          { value: "silver",  label: getValue("silver")  || "Silver" },
+                          { value: "gold", label: getValue("gold") || "Gold" },
+                          { value: "silver", label: getValue("silver") || "Silver" },
                         ]}
                         getOptionLabel={(o: any) => o.label}
                         getOptionValue={(o: any) => o.value}
@@ -320,8 +320,8 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                           ) : (
                             <div className="gif-upload-placeholder">
                               <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 16V8M12 8L9 11M12 8L15 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M3 15V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M12 16V8M12 8L9 11M12 8L15 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M3 15V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               </svg>
                               <span className="gif-placeholder-text">{getValue("upload_gif") || "Upload Skill GIF"}</span>
                               <span className="gif-placeholder-hint">GIF</span>
@@ -333,7 +333,7 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                             onClick={(e) => { e.stopPropagation(); setValue("kpi.skillVideoUrl", ""); setGifFileName(""); }}
                             title={getValue("remove") || "Remove"}>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                             </svg>
                           </button>
                         )}
@@ -349,11 +349,11 @@ const CardDetails = ({ show, setShow, employee, onEmployeeUpdated }: Props) => {
                 </div>
                 <Row className="g-3 mt-1">
                   {[
-                    { key: "kpi.cognition",  label: getValue("cognition")  || "Cognition" },
-                    { key: "kpi.technical",  label: getValue("technical")  || "Technical" },
-                    { key: "kpi.physical",   label: getValue("physical")   || "Physical" },
+                    { key: "kpi.cognition", label: getValue("cognition") || "Cognition" },
+                    { key: "kpi.technical", label: getValue("technical") || "Technical" },
+                    { key: "kpi.physical", label: getValue("physical") || "Physical" },
                     { key: "kpi.psychology", label: getValue("psychology") || "Psychology" },
-                    { key: "kpi.medical",    label: getValue("medical")    || "Medical" },
+                    { key: "kpi.medical", label: getValue("medical") || "Medical" },
                   ].map(({ key, label }) => (
                     <Col md={4} key={key}>
                       <Form.Group>
