@@ -130,10 +130,10 @@ const TemporaryThemeOverrideFormModal = ({ show, onClose, onSuccess, initialData
           </Row>
 
           <div className="mt-4 gap-2 d-flex justify-content-end">
-            <Button variant="danger" onClick={onClose}> {getValue('cancel')}</Button>
-            <Button type="submit" className="ms-2" variant="primary" disabled={isLoading}>
+            <button type="button" className="main-button" onClick={onClose}> {getValue('cancel')}</button>
+            <button type="submit" className="main-button active" disabled={isLoading}>
               {isLoading ? "Saving..." : getValue('button.save')}
-            </Button>
+            </button>
           </div>
         </Form>
       </Modal.Body>

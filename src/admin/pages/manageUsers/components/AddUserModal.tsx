@@ -8,8 +8,8 @@ import './AddUserModal.scss';
 
 // ── Fixed roles (Admin / User only) ──────────────────
 const USER_ROLES = [
-    { key: 'admin', value: 'Admin' },
-    { key: 'user', value: 'User' },
+    { key: 'admin', labelKey: 'role_admin' },
+    { key: 'user', labelKey: 'role_user' },
 ];
 
 // ── Section header (same style as AddPlayerModal) ────
@@ -226,7 +226,7 @@ const AddUserModal = ({ show, onClose, onSuccess }: Props) => {
                                                     </svg>
                                                 )}
                                             </span>
-                                            {r.value}
+                                            {getValue(r.labelKey) || r.key}
                                         </label>
                                     ))}
                                 </div>
@@ -249,7 +249,7 @@ const AddUserModal = ({ show, onClose, onSuccess }: Props) => {
                             <Form.Group>
                                 <Form.Label>{getValue('access_permissions') || 'صلاحيات الوصول'}</Form.Label>
                                 <div className="aum-permissions-list">
-                                    {AVAILABLE_PERMISSIONS.map(p => (
+                                    {(AVAILABLE_PERMISSIONS as any[]).map(p => (
                                         <label key={p.key} className="aum-perm-row">
                                             <div className="aum-checkbox">
                                                 <input
@@ -267,7 +267,7 @@ const AddUserModal = ({ show, onClose, onSuccess }: Props) => {
                                                 </span>
                                             </div>
                                             <div className="aum-perm-info">
-                                                <span className="aum-perm-label">{p.label}</span>
+                                                <span className="aum-perm-label">{getValue(p.labelKey) || p.key}</span>
                                             </div>
                                         </label>
                                     ))}

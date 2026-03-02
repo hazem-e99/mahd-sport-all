@@ -6,6 +6,13 @@
 
 @import './public-fonts.scss';
 
+:root {
+  --bs-primary: #773dbd;
+  --bs-primary-rgb: 119, 61, 189;
+  --bs-link-color: #773dbd;
+  --bs-link-hover-color: #6d38ae;
+}
+
 #root {
   height: 100vh;
 }
@@ -17,7 +24,7 @@
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #773dbd;
   --bs-btn-hover-border-color: #773dbd;
-  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-focus-shadow-rgb: 119, 61, 189;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #773dbd;
   --bs-btn-active-border-color: #6d38ae;

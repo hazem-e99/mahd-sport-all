@@ -607,39 +607,38 @@ const UploadModal = ({
             {/* Create Folder Modal */}
             {showCreateFolder && (
               <div className="create-folder-input mb-3">
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="form-control !rounded !w-full"
-                    placeholder={getValue("folder_name")}
-                    value={newFolderName}
-                    onChange={(e) => setNewFolderName(e.target.value)}
-                    onKeyPress={(e) =>
-                      e.key === "Enter" && handleCreateFolder()
-                    }
-                  />
-                  <div className="input-group-append">
-                    <button
-                      className="btn btn-primary"
-                      onClick={handleCreateFolder}
-                      disabled={isCreatingFolder || !newFolderName.trim()}
-                    >
-                      {isCreatingFolder ? (
-                        <Spinner animation="border" size="sm" />
-                      ) : (
-                        getValue("create")
-                      )}
-                    </button>
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() => {
-                        setShowCreateFolder(false);
-                        setNewFolderName("");
-                      }}
-                    >
-                      {getValue("cancel")}
-                    </button>
-                  </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={getValue("folder_name")}
+                  value={newFolderName}
+                  onChange={(e) => setNewFolderName(e.target.value)}
+                  onKeyPress={(e) =>
+                    e.key === "Enter" && handleCreateFolder()
+                  }
+                  autoFocus
+                />
+                <div className="create-folder-actions mt-2">
+                  <button
+                    className="main-button active"
+                    onClick={handleCreateFolder}
+                    disabled={isCreatingFolder || !newFolderName.trim()}
+                  >
+                    {isCreatingFolder ? (
+                      <Spinner animation="border" size="sm" />
+                    ) : (
+                      getValue("create")
+                    )}
+                  </button>
+                  <button
+                    className="main-button"
+                    onClick={() => {
+                      setShowCreateFolder(false);
+                      setNewFolderName("");
+                    }}
+                  >
+                    {getValue("cancel")}
+                  </button>
                 </div>
               </div>
             )}

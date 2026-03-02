@@ -562,7 +562,6 @@
   "Primary_Color": "اللون الرئيسي",
   "Recurrence_Day_Month": "يوم التكرار في الشهر",
   "Recurrence_Months": "أشهر التكرار",
-  "select_date": "اختر التاريخ",
   "Show_User": "إظهار للمستخدمين",
   "sport_info": "معلومات رياضية",
   "status.active": "نشط",
@@ -630,5 +629,11 @@
   "password_error_number": "يجب أن تحتوي على رقم",
   "password_error_mismatch": "كلمة المرور وتأكيدها غير متطابقتين",
   "password_change_failed": "فشل تغيير كلمة المرور. حاول مجدداً.",
-  "first_login_label": "أول دخول؟"
+  "first_login_label": "أول دخول؟",
+  "role_admin": "مسؤول (Admin)",
+  "role_user": "مستخدم (User)",
+  "perm_read": "قراءة (Read)",
+  "perm_write": "كتابة (Write)",
+  "perm_delete": "حذف (Delete)",
+  "perm_manage": "إدارة (Manage)"
 }

@@ -616,5 +616,11 @@
   "password_error_number": "Must contain a number",
   "password_error_mismatch": "Password and confirmation do not match",
   "password_change_failed": "Failed to change password. Please try again.",
-  "first_login_label": "First Login?"
+  "first_login_label": "First Login?",
+  "role_admin": "Admin",
+  "role_user": "User",
+  "perm_read": "Read",
+  "perm_write": "Write",
+  "perm_delete": "Delete",
+  "perm_manage": "Manage"
 }

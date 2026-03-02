@@ -339,20 +339,24 @@
 }
 
 .create-folder-input {
-  .input-group {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+
+  .form-control {
     width: 100%;
+  }
+
+  .create-folder-actions {
+    display: flex;
     gap: 8px;
+    justify-content: flex-end;
 
-    &-append {
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn {
-      font-size: $font-size-sm;
-      padding: 0.375rem 0.75rem;
+    // RTL Support
+    html[dir='rtl'] & {
+      justify-content: flex-start;
+      flex-direction: row-reverse;
     }
   }
 }

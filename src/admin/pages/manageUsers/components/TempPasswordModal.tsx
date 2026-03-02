@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import { useLanguage } from '@admin/context/languageContext';
 import type { ManagedUser } from '@shared/mockData/mockDb';
 
+import './TempPasswordModal.scss';
+
 interface Props {
     user: ManagedUser;
     onClose: () => void;
@@ -23,21 +25,21 @@ const TempPasswordModal = ({ user, onClose }: Props) => {
     };
 
     return (
-        <Modal show onHide={onClose} centered size="sm">
-            <Modal.Header closeButton style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
-                <Modal.Title style={{ fontSize: '16px' }}>
-                    ✅ {getValue('user_added') || 'تم إضافة المستخدم'}
+        <Modal show onHide={onClose} centered size="sm" className="mu-temp-pass-modal">
+            <Modal.Header closeButton dir={isRtl ? 'rtl' : 'ltr'}>
+                <Modal.Title style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                    {getValue('user_added') || 'تم إضافة المستخدم'}
                 </Modal.Title>
             </Modal.Header>
 
-            <Modal.Body style={{ direction: isRtl ? 'rtl' : 'ltr', textAlign: 'center', padding: '28px 24px' }}>
+            <Modal.Body dir={isRtl ? 'rtl' : 'ltr'} style={{ textAlign: 'center', padding: '28px 24px' }}>
                 <div className="tp-email-badge">{user.email}</div>
                 <p className="tp-label">{getValue('temp_password') || 'كلمة المرور المؤقتة'}</p>
                 <div className="tp-pass-box">
                     <code>{user.tempPassword}</code>
                     <button className="tp-copy-btn" onClick={handleCopy} title={getValue('copy_password') || 'نسخ'}>
                         {copied ? (
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ color: 'var(--alert-green-color, #10b981)' }}>
                                 <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         ) : (
@@ -53,36 +55,11 @@ const TempPasswordModal = ({ user, onClose }: Props) => {
                 </p>
             </Modal.Body>
 
-            <Modal.Footer style={{ justifyContent: 'center', direction: isRtl ? 'rtl' : 'ltr' }}>
+            <Modal.Footer style={{ justifyContent: 'center' }} dir={isRtl ? 'rtl' : 'ltr'}>
                 <button className="main-button active" onClick={onClose}>
                     {getValue('understood') || 'فهمت'}
                 </button>
             </Modal.Footer>
-
-            <style>{`
-                .tp-email-badge {
-                    display: inline-block;
-                    background: rgba(119,61,189,0.08); color: #773dbd;
-                    padding: 4px 16px; border-radius: 20px;
-                    font-size: 13px; margin-bottom: 20px; direction: ltr;
-                }
-                .tp-label { font-size: 13px; color: #6b7280; margin-bottom: 8px; }
-                .tp-pass-box {
-                    display: flex; align-items: center; justify-content: center; gap: 10px;
-                    background: #f8f4ff; border: 1.5px dashed #773dbd;
-                    border-radius: 10px; padding: 14px 20px; margin-bottom: 16px;
-                }
-                .tp-pass-box code {
-                    font-size: 22px; font-weight: 700; color: #4a1d8c;
-                    letter-spacing: 2px; direction: ltr;
-                }
-                .tp-copy-btn {
-                    background: none; border: none; cursor: pointer;
-                    color: #773dbd; padding: 4px; display: flex; transition: transform 0.2s;
-                }
-                .tp-copy-btn:hover { transform: scale(1.15); }
-                .tp-note { font-size: 12px; color: #9ca3af; line-height: 1.8; }
-            `}</style>
         </Modal>
     );
 };

@@ -12,10 +12,10 @@ const generateTempPassword = (): string => {
 const generateId = (): string => Date.now().toString();
 
 export const AVAILABLE_PERMISSIONS = [
-    { key: 'read', label: 'قراءة (Read)' },
-    { key: 'write', label: 'كتابة (Write)' },
-    { key: 'delete', label: 'حذف (Delete)' },
-    { key: 'manage', label: 'إدارة (Manage)' },
+    { key: 'read', labelKey: 'perm_read' },
+    { key: 'write', labelKey: 'perm_write' },
+    { key: 'delete', labelKey: 'perm_delete' },
+    { key: 'manage', labelKey: 'perm_manage' },
 ];
 
 export const UserManagementService = {

@@ -1,5 +1,4 @@
-// AddUserModal — styled to match AddPlayerModal using hardcoded values
-// Primary: #773dbd  |  Gray border: #e2e8f0  |  Input height: 42px
+@use '../../../styles/variables' as *;
 
 .add-user-modal {
     font-family: "Mahd Favorit Arabic", "Mahd Favorit Arabic Book", sans-serif !important;
@@ -14,14 +13,14 @@
 
     // ── Header ──────────────────────────────────────────
     .modal-header {
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid $color-gray-200;
         padding: 1.25rem 1.5rem;
-        background-color: #ffffff;
+        background-color: $color-white;
 
         .modal-title {
-            font-size: 1rem;
+            font-size: $font-size-xl;
             font-weight: 700;
-            color: #1e293b;
+            color: $text-primary-color;
         }
 
         .btn-close {
@@ -43,9 +42,9 @@
     .aum-title-icon {
         width: 32px;
         height: 32px;
-        border-radius: 8px;
-        background: rgba(119, 61, 189, 0.1);
-        color: #773dbd;
+        border-radius: $border-radius-md;
+        background: rgba($color-primary, 0.1);
+        color: $color-primary;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -56,7 +55,7 @@
     .modal-body,
     .aum-body {
         padding: 1.5rem;
-        background-color: #fafafa;
+        background-color: $color-gray-900;
     }
 
     // ── Section Headers ──────────────────────────────────
@@ -66,7 +65,7 @@
         gap: 8px;
         margin: 1.5rem 0 0.75rem;
         padding-bottom: 10px;
-        border-bottom: 1.5px solid rgba(119, 61, 189, 0.15);
+        border-bottom: 1.5px solid rgba($color-primary, 0.15);
 
         &:first-of-type {
             margin-top: 0;
@@ -76,8 +75,8 @@
             width: 28px;
             height: 28px;
             border-radius: 8px;
-            background: rgba(119, 61, 189, 0.1);
-            color: #773dbd;
+            background: rgba($color-primary, 0.1);
+            color: $color-primary;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -85,55 +84,55 @@
         }
 
         &__title {
-            font-size: 0.875rem;
+            font-size: $font-size-md;
             font-weight: 700;
-            color: #773dbd;
+            color: $color-primary;
             letter-spacing: 0.01em;
         }
     }
 
     // ── Labels ──────────────────────────────────────────
     .form-label {
-        font-size: 0.8125rem;
+        font-size: $font-size-sm;
         font-weight: 600;
-        color: #64748b;
+        color: $color-gray-400;
         margin-bottom: 0.375rem;
         display: block;
     }
 
     .aum-required {
-        color: #ef4444;
-        font-size: 0.8125rem;
+        color: $alert-red-color;
+        font-size: $font-size-sm;
     }
 
     // ── Inputs ──────────────────────────────────────────
     .form-control {
-        height: 42px;
-        border: 1.5px solid #e2e8f0;
-        border-radius: 8px;
-        font-size: 0.875rem;
-        color: #1e293b;
-        background-color: #ffffff;
+        height: $input-height;
+        border: 1.5px solid $input-border-color;
+        border-radius: $border-radius-md;
+        font-size: $font-size-md;
+        color: $text-primary-color;
+        background-color: $color-white;
         transition: border-color 0.2s ease, box-shadow 0.2s ease;
         padding: 0 0.875rem;
         width: 100%;
 
         &::placeholder {
-            color: #94a3b8;
-            font-size: 0.875rem;
+            color: $color-gray-800;
+            font-size: $font-size-md;
         }
 
         &:focus {
-            border-color: #773dbd !important;
-            box-shadow: 0 0 0 3px rgba(119, 61, 189, 0.1) !important;
+            border-color: $color-primary !important;
+            box-shadow: 0 0 0 3px rgba($color-primary, 0.1) !important;
             outline: none;
         }
 
         &.is-invalid {
-            border-color: #ef4444 !important;
+            border-color: $alert-red-color !important;
 
             &:focus {
-                box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+                box-shadow: 0 0 0 3px rgba($alert-red-color, 0.1) !important;
             }
         }
     }
@@ -143,12 +142,12 @@
         display: flex;
         align-items: flex-start;
         gap: 10px;
-        background: rgba(119, 61, 189, 0.06);
-        border: 1px solid rgba(119, 61, 189, 0.18);
-        border-radius: 8px;
+        background: rgba($color-primary, 0.06);
+        border: 1px solid rgba($color-primary, 0.18);
+        border-radius: $border-radius-md;
         padding: 12px 16px;
-        font-size: 0.8125rem;
-        color: #5a2d91;
+        font-size: $font-size-sm;
+        color: darken($color-primary, 10%);
         line-height: 1.65;
         margin-bottom: 0.5rem;
 
@@ -170,13 +169,13 @@
         align-items: center;
         gap: 8px;
         padding: 10px 20px;
-        border: 1.5px solid #e2e8f0;
-        border-radius: 8px;
+        border: 1.5px solid $input-border-color;
+        border-radius: $border-radius-md;
         cursor: pointer;
-        font-size: 0.875rem;
+        font-size: $font-size-md;
         font-weight: 600;
-        color: #64748b;
-        background-color: #ffffff;
+        color: $color-gray-400;
+        background-color: $color-white;
         transition: all 0.2s ease;
         user-select: none;
         flex: 1;
@@ -191,7 +190,7 @@
             width: 24px;
             height: 24px;
             border-radius: 6px;
-            background: rgba(226, 232, 240, 0.5);
+            background: $color-gray-300;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -199,34 +198,34 @@
         }
 
         &:hover:not(.active) {
-            border-color: rgba(119, 61, 189, 0.4);
-            color: #773dbd;
-            background-color: rgba(119, 61, 189, 0.03);
+            border-color: rgba($color-primary, 0.4);
+            color: $color-primary;
+            background-color: rgba($color-primary, 0.03);
 
             .aum-role-pill__icon {
-                background: rgba(119, 61, 189, 0.1);
-                color: #773dbd;
+                background: rgba($color-primary, 0.1);
+                color: $color-primary;
             }
         }
 
         &.active {
-            border-color: #773dbd;
-            background: rgba(119, 61, 189, 0.06);
-            color: #773dbd;
+            border-color: $color-primary;
+            background: rgba($color-primary, 0.06);
+            color: $color-primary;
 
             .aum-role-pill__icon {
-                background: #773dbd;
-                color: #ffffff;
+                background: $color-primary;
+                color: $color-white;
             }
         }
     }
 
     .aum-role-hint {
         font-size: 12px;
-        color: #64748b;
+        color: $color-gray-400;
         margin-top: 8px;
         padding: 6px 10px;
-        background: #f1f5f9;
+        background: $color-gray-100;
         border-radius: 6px;
         display: inline-block;
     }
@@ -236,10 +235,10 @@
         display: flex;
         flex-direction: column;
         gap: 0;
-        border: 1.5px solid #e2e8f0;
-        border-radius: 8px;
+        border: 1.5px solid $input-border-color;
+        border-radius: $border-radius-md;
         overflow: hidden;
-        background: #ffffff;
+        background: $color-white;
     }
 
     .aum-perm-row {
@@ -249,14 +248,14 @@
         padding: 12px 16px;
         cursor: pointer;
         transition: background-color 0.15s ease;
-        border-bottom: 1px solid #f1f5f9;
+        border-bottom: 1px solid $color-gray-100;
 
         &:last-child {
             border-bottom: none;
         }
 
         &:hover {
-            background-color: rgba(119, 61, 189, 0.03);
+            background-color: rgba($color-primary, 0.03);
         }
     }
 
@@ -272,9 +271,9 @@
         &__box {
             width: 18px;
             height: 18px;
-            border: 1.5px solid #e2e8f0;
+            border: 1.5px solid $input-border-color;
             border-radius: 5px;
-            background: #ffffff;
+            background: $color-white;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -284,8 +283,8 @@
 
     .aum-perm-row:has(input:checked) {
         .aum-checkbox__box {
-            background: #773dbd;
-            border-color: #773dbd;
+            background: $color-primary;
+            border-color: $color-primary;
         }
     }
 
@@ -297,25 +296,25 @@
     }
 
     .aum-perm-label {
-        font-size: 0.875rem;
+        font-size: $font-size-md;
         font-weight: 600;
-        color: #1e293b;
+        color: $text-primary-color;
         text-transform: capitalize;
     }
 
     // ── Field error ─────────────────────────────────────
     .aum-field-error {
         font-size: 12px;
-        color: #ef4444;
+        color: $alert-red-color;
         margin-top: 6px;
     }
 
     // ── Footer ──────────────────────────────────────────
     .modal-footer,
     .aum-footer {
-        border-top: 1px solid #e2e8f0;
+        border-top: 1px solid $color-gray-200;
         padding: 1rem 1.5rem;
-        background-color: #ffffff;
+        background-color: $color-white;
         gap: 0.75rem;
         justify-content: flex-end;
     }

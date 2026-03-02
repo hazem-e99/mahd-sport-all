@@ -5,6 +5,8 @@
 
   --bs-primary-color: #773dbd;
   --bs-primary-rgb-color: 119, 61, 189;
+  --bs-primary: var(--bs-primary-color);
+  --bs-primary-rgb: var(--bs-primary-rgb-color);
 
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--bs-primary-color);
@@ -27,7 +29,7 @@
   --bs-border-color-widget: #D4D4D6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
   --bs-primary-inverse: #ffffff;
-  --bs-blue: #0d6efd;
+  --bs-blue: var(--bs-primary-color);
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;

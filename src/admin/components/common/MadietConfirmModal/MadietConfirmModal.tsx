@@ -1,6 +1,6 @@
 import { useLanguage } from '@admin/context/languageContext';
 import React from 'react';
-import { Button, Modal, Spinner } from 'react-bootstrap';
+import { Modal, Spinner } from 'react-bootstrap';
 import './MadietConfirmModal.scss';
 
 interface MadietConfirmModalProps {
@@ -38,18 +38,19 @@ const MadietConfirmModal: React.FC<MadietConfirmModalProps> = ({
             </Modal.Body>
 
             <Modal.Footer>
-                <Button
-                    variant="secondary"
+                <button
+                    type="button"
+                    className="main-button"
                     onClick={onHide}
                     disabled={isLoading}
                 >
                     {getValue('cancel')}
-                </Button>
-                <Button
-                    variant="primary"
+                </button>
+                <button
+                    type="button"
+                    className="main-button active ms-2"
                     onClick={onConfirm}
                     disabled={isLoading}
-                    className="confirm-btn"
                 >
                     {isLoading ? (
                         <>
@@ -66,7 +67,7 @@ const MadietConfirmModal: React.FC<MadietConfirmModalProps> = ({
                     ) : (
                         getValue('yes')
                     )}
-                </Button>
+                </button>
             </Modal.Footer>
         </Modal>
     );

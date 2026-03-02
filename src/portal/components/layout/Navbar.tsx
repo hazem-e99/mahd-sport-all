@@ -30,10 +30,10 @@ export default function Navbar({
       <div className="nav-bar-right">
         <DateTimeDisplay />
         <button onClick={toggleLanguage} className="lang">
-          {language === "ar" ? "en" : "ar"}
+          {language === "ar" ? "EN" : "AR"}
         </button>
         <UserProfileMenu userData={null} />
-        <button onClick={toggleSideBar} style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}>
+        <button onClick={toggleSideBar} className="nav-menu-btn">
           <NavMenuToggle />
         </button>
       </div>

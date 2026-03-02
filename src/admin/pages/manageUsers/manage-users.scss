@@ -5,14 +5,14 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        background: #fff;
-        border: 1px solid #eaecf0;
+        background: $color-white;
+        border: 1px solid $btn-icon-border-color;
         border-radius: $border-radius-sm;
         padding: 8px 14px;
         min-width: 280px;
 
         svg {
-            color: #98a2b3;
+            color: $color-gray-800;
             flex-shrink: 0;
         }
 
@@ -25,7 +25,7 @@
             direction: rtl;
 
             &::placeholder {
-                color: #98a2b3;
+                color: $color-gray-800;
             }
         }
     }
@@ -46,13 +46,13 @@
         color: $color-primary;
 
         &--warn {
-            background: rgba(#f59e0b, 0.12);
-            color: #b45309;
+            background: rgba($alert-yellow-color, 0.12);
+            color: darken($alert-yellow-color, 15%);
         }
 
         &--ok {
-            background: rgba(#10b981, 0.12);
-            color: #059669;
+            background: rgba($alert-green-color, 0.12);
+            color: $alert-green-color;
         }
     }
 
@@ -66,20 +66,20 @@
         transition: all 0.2s;
 
         &--active {
-            background: rgba(#10b981, 0.12);
-            color: #059669;
+            background: rgba($alert-green-color, 0.12);
+            color: $alert-green-color;
 
             &:hover {
-                background: rgba(#10b981, 0.22);
+                background: rgba($alert-green-color, 0.22);
             }
         }
 
         &--inactive {
-            background: rgba(#ef4444, 0.1);
-            color: #dc2626;
+            background: rgba($alert-red-color, 0.1);
+            color: $alert-red-color;
 
             &:hover {
-                background: rgba(#ef4444, 0.18);
+                background: rgba($alert-red-color, 0.18);
             }
         }
     }
@@ -104,8 +104,8 @@
             display: none;
 
             &:checked~.mu-switch__track {
-                background: #773dbd;
-                border-color: #773dbd;
+                background: $color-primary;
+                border-color: $color-primary;
 
                 .mu-switch__thumb {
                     transform: translateX(18px);
@@ -117,8 +117,8 @@
             position: relative;
             width: 40px;
             height: 22px;
-            background: #e2e8f0;
-            border: 1.5px solid #cbd5e1;
+            background: rgba($color-gray-800, 0.1);
+            border: 1.5px solid rgba($color-gray-800, 0.2);
             border-radius: 100px;
             transition: background 0.25s ease, border-color 0.25s ease;
             flex-shrink: 0;
@@ -130,7 +130,7 @@
             left: 2px;
             width: 14px;
             height: 14px;
-            background: #ffffff;
+            background: $color-white;
             border-radius: 50%;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             transition: transform 0.25s ease;
@@ -142,16 +142,16 @@
             min-width: 30px;
 
             &--on {
-                color: #059669;
+                color: $alert-green-color;
             }
 
             &--off {
-                color: #94a3b8;
+                color: $color-gray-800;
             }
         }
 
         &:hover .mu-switch__track {
-            border-color: #773dbd;
+            border-color: $color-primary;
         }
     }
 
@@ -159,10 +159,10 @@
     .mu-delete-btn {
         width: 32px;
         height: 32px;
-        border-radius: 8px;
-        border: 1.5px solid #fee2e2;
-        background: #fff5f5;
-        color: #ef4444;
+        border-radius: $border-radius-md;
+        border: 1.5px solid rgba($alert-red-color, 0.1);
+        background: rgba($alert-red-color, 0.05);
+        color: $alert-red-color;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -172,9 +172,9 @@
         flex-shrink: 0;
 
         &:hover {
-            background: #ef4444;
-            border-color: #ef4444;
-            color: #ffffff;
+            background: $alert-red-color;
+            border-color: $alert-red-color;
+            color: $color-white;
             transform: scale(1.05);
         }
     }

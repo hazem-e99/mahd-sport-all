@@ -66,7 +66,7 @@ export const ChooseYourBackground = ({ show, handleClose, onSuccess, setBackgrou
           value={nameAr}
           onChange={(e) => setNameAr(e.target.value)}
         />
-        
+
         <ImageUploadModal
           clearErrors={clearErrors}
           control={control}
@@ -78,8 +78,8 @@ export const ChooseYourBackground = ({ show, handleClose, onSuccess, setBackgrou
 
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-        <Button variant="primary" onClick={handleSubmit(handleSave)}>Save</Button>
+        <button type="button" className="main-button" onClick={handleClose}>Cancel</button>
+        <button type="button" className="main-button active ms-2" onClick={handleSubmit(handleSave)}>Save</button>
       </Modal.Footer>
 
     </Modal>
