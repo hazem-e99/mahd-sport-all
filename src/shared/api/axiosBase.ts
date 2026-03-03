@@ -9,10 +9,10 @@
  */
 import axios from 'axios';
 
-const BASE_URL =
-  import.meta.env.VITE_BASE_URL
-    ? `${import.meta.env.VITE_BASE_URL}/api`
-    : 'http://23.254.129.173/api';
+// TODO: سيتم تحديث هذا عند جاهزية الباك إيند - ENV_CONFIG.API_BASE_URL ستكون فارغة حتى يتم الإعداد
+const BASE_URL = import.meta.env.VITE_BASE_URL
+  ? `${import.meta.env.VITE_BASE_URL}/api`
+  : '';
 
 const axiosBase = axios.create({
   baseURL: BASE_URL,

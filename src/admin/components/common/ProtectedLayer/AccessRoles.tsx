@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import type { ReactNode } from "react";
 import { useCurrentUser, clearUserCache } from '@admin/hooks';
-import { handleLogout } from '@admin/msalConfig';
 
 interface AccessRolesProps {
   children: ReactNode;
@@ -19,7 +18,8 @@ const AccessRoles: React.FC<AccessRolesProps> = ({ children }) => {
       localStorage.clear();
       clearUserCache(); // Clear the user cache
 
-      handleLogout();
+      // TODO: هنا تضع رابط دخول النظام الجديد لما يكون جاهزاً
+      window.location.href = '/';
     }
 
     // Log errors if any

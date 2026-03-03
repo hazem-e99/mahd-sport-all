@@ -1,7 +1,5 @@
 import { CURRENT_ENV_CONFIG } from '@admin/constants/environment';
-// Authentication disabled - removed MSAL import
 import axios from "axios";
-import { getAccessTokenFromMSAL } from "./msalConfig";
 
 const BASE_URL = CURRENT_ENV_CONFIG.API_BASE_URL;
 
@@ -18,12 +16,6 @@ const apiClient = axios.create({
 apiClient.interceptors.request.use(
   async (config) => {
     try {
-      // Authentication disabled - no token required
-      const accessToken = await getAccessTokenFromMSAL();
-      if (accessToken) {
-        config.headers.Authorization = `Bearer ${accessToken}`;
-      }
-
       const lang = localStorage.getItem('language') || 'ar';
       config.headers['Accept-Language'] = lang;
 
@@ -44,7 +36,7 @@ apiClient.interceptors.response.use(
   },
   (error) => {
     if (error.response?.status === 401) {
-      console.error("🔒 Unauthorized - Token might be expired");
+      console.error("🔒 Unauthorized - 401");
     }
     
     console.error(`❌ API Error: ${error.response?.status} ${error.config?.url}`, error);
