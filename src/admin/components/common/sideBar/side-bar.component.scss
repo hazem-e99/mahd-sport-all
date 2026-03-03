@@ -30,6 +30,10 @@
   margin: 30px auto;
 
   ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
     li {
       position: relative;
       width: 40px;
@@ -44,23 +48,16 @@
         background: #ebe2f5;
         border-radius: 6px;
 
+        // Active indicator bar — on the left outer edge of the sidebar
         &:before {
           content: "";
           position: absolute;
           top: 5px;
+          left: -16px;
           width: 5px;
           height: 30px;
           background: $color-primary;
-
-          [dir="ltr"] & {
-            left: -15px;
-            border-radius: 0 6px 6px 0;
-          }
-
-          [dir="rtl"] & {
-            right: -15px;
-            border-radius: 6px 0 0 6px;
-          }
+          border-radius: 0 6px 6px 0;
         }
 
         .link_page svg {
@@ -83,14 +80,7 @@
             transition: 0.3s ease-in-out;
             opacity: 1;
             visibility: visible;
-
-            [dir="ltr"] & {
-              left: 50px;
-            }
-
-            [dir="rtl"] & {
-              right: 50px;
-            }
+            left: 50px;
           }
         }
 
@@ -107,6 +97,7 @@
           // padding removed to unify
         }
 
+        // Tooltip — always opens to the right (sidebar is always on the left)
         .icon_name {
           position: absolute;
           background: #333333;
@@ -129,16 +120,9 @@
             width: 10px;
             height: 10px;
             top: 15px;
+            left: -5px;
             background: #333333;
             transform: rotate(45deg);
-
-            [dir="ltr"] & {
-              left: -5px;
-            }
-
-            [dir="rtl"] & {
-              right: -6px;
-            }
           }
         }
       }

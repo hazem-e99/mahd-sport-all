@@ -10,6 +10,8 @@ import portalRoute from "@portal/routes";
 const AdminApp = lazy(() => import("@admin/AdminApp"));
 const LoginPage = lazy(() => import("@shared/pages/login/LoginPage"));
 const CreateNewPasswordPage = lazy(() => import("@shared/pages/createPassword/CreateNewPasswordPage"));
+const ForgotPasswordPage = lazy(() => import("@shared/pages/forgotPassword/ForgotPasswordPage"));
+import ProtectedRoute from "@shared/components/ProtectedRoute";
 
 const Loading = () => (
     <div className="d-flex justify-content-center align-items-center vh-100">
@@ -35,16 +37,29 @@ const Router = createBrowserRouter([
             </Suspense>
         ),
     },
-
-    // Admin area — independent routing tree (children owned by @admin/routes)
     {
-        path: "/admin",
+        path: "/forgot-password",
         element: (
             <Suspense fallback={<Loading />}>
-                <AdminApp />
+                <ForgotPasswordPage />
             </Suspense>
         ),
-        children: adminRoutes,
+    },
+
+    // Admin area — protected (must be authenticated + have admin access)
+    {
+        element: <ProtectedRoute requireAdmin />,
+        children: [
+            {
+                path: "/admin",
+                element: (
+                    <Suspense fallback={<Loading />}>
+                        <AdminApp />
+                    </Suspense>
+                ),
+                children: adminRoutes,
+            },
+        ],
     },
 
     // Portal area — independent routing tree (owned by @portal/routes)
