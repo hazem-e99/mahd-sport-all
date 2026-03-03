@@ -1,4 +1,6 @@
-import BASE_URL from '@admin/constants';
+import { CURRENT_ENV_CONFIG } from '@admin/constants/environment';
+
+const BASE_URL = CURRENT_ENV_CONFIG.API_BASE_URL;
 
 export const FILE_RECORD_API = {
   uploadFile: "/FileRecord/Upload",

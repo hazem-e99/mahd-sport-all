@@ -24,6 +24,16 @@ export default defineConfig(({ mode }) => {
         "@portal-utils": path.resolve(__dirname, "src/portal/utils"),
         "@portal-hooks": path.resolve(__dirname, "src/portal/hooks"),
         "@portal-styles": path.resolve(__dirname, "src/portal/styles"),
+        // New area route aliases
+        "@admin-routes": path.resolve(__dirname, "src/admin/routes"),
+        "@portal-routes": path.resolve(__dirname, "src/portal/routes"),
+        // New portal services alias
+        "@portal-services": path.resolve(__dirname, "src/portal/services"),
+        // Shared sub-aliases for precise imports
+        "@shared-hooks": path.resolve(__dirname, "src/shared/hooks"),
+        "@shared-utils": path.resolve(__dirname, "src/shared/utils"),
+        "@shared-types": path.resolve(__dirname, "src/shared/types"),
+        "@shared-api": path.resolve(__dirname, "src/shared/api"),
       },
     },
     server: {

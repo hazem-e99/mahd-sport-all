@@ -3,6 +3,7 @@
 @use './base' as *;
 @use './mixins' as *;
 @use "tailwindcss" as *;
+@use './_app';
 
 @import './public-fonts.scss';
 

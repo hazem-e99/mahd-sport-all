@@ -2,6 +2,7 @@
 export * from './auth';
 export * from './environment';
 export * from './urls';
+export * from './permissions';
 
 // Re-export commonly used constants for convenience
 export {
@@ -13,4 +14,7 @@ export { DEVELOPMENT_URLS, MICROSOFT_LOGOUT_URLS, PRODUCTION_URLS } from './urls
 export {
     CURRENT_ENV, CURRENT_ENV_CONFIG, ENVIRONMENT, ENV_CONFIG, FEATURE_FLAGS
 } from './environment';
+
+export { EnumPermissions } from './permissions';
+export type { Permission } from './permissions';
 

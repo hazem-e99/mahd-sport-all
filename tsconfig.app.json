@@ -58,6 +58,27 @@
             ],
             "@portal-styles/*": [
                 "./src/portal/styles/*"
+            ],
+            "@portal-services/*": [
+                "./src/portal/services/*"
+            ],
+            "@portal-routes/*": [
+                "./src/portal/routes/*"
+            ],
+            "@admin-routes/*": [
+                "./src/admin/routes/*"
+            ],
+            "@shared-hooks/*": [
+                "./src/shared/hooks/*"
+            ],
+            "@shared-utils/*": [
+                "./src/shared/utils/*"
+            ],
+            "@shared-types/*": [
+                "./src/shared/types/*"
+            ],
+            "@shared-api/*": [
+                "./src/shared/api/*"
             ]
         },
         /* Linting */

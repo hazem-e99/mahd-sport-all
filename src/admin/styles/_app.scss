@@ -1,14 +1,16 @@
-@use './styles/variables' as *;
+/**
+ * Admin app-level layout styles.
+ * Moved from root App.scss to keep all admin styles inside src/admin/styles/.
+ */
+@use './variables' as *;
 
 .app-container {
   &__body {
     background-color: $color-gray-100;
 
-    // padding: 0rem 5rem 0rem 5rem;
     &__content {
       width: 100%;
       max-width: 1400px;
-
       margin: auto;
     }
   }
@@ -25,37 +27,4 @@
 body {
   margin: 0;
   padding: 0;
-
-
-}
-
-body {
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span,
-  div,
-  ul {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-
-  }
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.date-picker-container {
-  width: 100%;
 }

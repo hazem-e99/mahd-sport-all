@@ -9,7 +9,6 @@ import { useTranslation } from "react-i18next";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LocalizationService, type LocalizationItem } from './api/services/localization.service';
-import "./App.scss";
 import { LanguageProvider } from "./context/languageContext";
 import { UserProvider } from "./context/UserContext";
 

@@ -5,7 +5,7 @@ import { type FieldValues, type UseFormClearErrors, type UseFormSetValue, type U
 import type { FileItem } from "../../types/file.type";
 import { getVisibility } from "../../types/file.type";
 import { UploadFile } from '@admin/api/services/UploadFile';
-import { useDebounce } from '@admin/components/hooks/useDebounce';
+import { useDebounce } from '@shared/hooks';
 import { useLanguage } from "../../context/languageContext";
 import FolderIcon from "../../components/icons/FolderIcon";
 import FileIcon from "../../components/icons/FileIcon";
