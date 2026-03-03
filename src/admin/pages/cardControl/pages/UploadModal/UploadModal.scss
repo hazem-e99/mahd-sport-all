@@ -1,7 +1,7 @@
 @use '../../../../styles/variables' as *;
 
 // Modal specific styling to prevent modal body scroll
-.modal {
+.upload-file-modal {
   .modal-dialog {
     .modal-content {
       height: 90vh;

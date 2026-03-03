@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import './TemporaryTheme.component.scss';
 import SharedTable from '@admin/components/common/shard-table/shared-table';
 import SvgSearchicon from '@admin/components/icons/search-icon';
 import { TablePagination } from '@admin/components/common/pagination/Pagination';

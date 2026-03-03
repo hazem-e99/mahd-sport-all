@@ -503,7 +503,7 @@ const UploadModal = ({
 
   return (
     <>
-      <Modal show={show} onHide={handleClose} centered size="lg">
+      <Modal show={show} onHide={handleClose} centered size="lg" className="upload-file-modal">
         <Modal.Header closeButton>
           <Modal.Title>
             <div className="header_modal">
